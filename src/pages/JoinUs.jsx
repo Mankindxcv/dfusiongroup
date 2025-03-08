@@ -1,38 +1,35 @@
 import { useState } from "react";
-import "../Styles/global.css"; // Ensure styles are updated
+import "bootstrap-icons/font/bootstrap-icons.css"; // Ensure Bootstrap Icons are imported
+import "../Styles/global.css"; // Your custom styles
 
 const reviews = [
   {
     id: 1,
-    name: "Sachin Burdak",
+    name: "Lewis Johnson",
     rating: 5,
     review:
-      "I am so happy to find elfsight. Affordable, efficient, and great support team. Thanks, elfsight!",
-    profilePic: "S",
+      "DFG Security provides top-notch service! Their team is highly professional and responsive. Highly recommend!",
   },
   {
     id: 2,
-    name: "Hadi Rezai",
+    name: "Mike Newton",
     rating: 5,
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit numquam dolores consequatur praesentium labore quod, quae nemo id tempore eius!",
-    profilePic: "H",
+      "Fantastic experience! The security measures they provide are reliable and affordable. Couldn't ask for better support!",
   },
   {
     id: 3,
-    name: "Sergio Florez",
+    name: "Micheal Woods",
     rating: 5,
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit numquam dolores consequatur praesentium labore quod, quae nemo id tempore eius!",
-    profilePic: "S",
+      "I have been using their services for a while now, and I must say they are excellent. Their response time is amazing!",
   },
   {
     id: 4,
-    name: "Semaj95",
+    name: "Emily Lewis",
     rating: 4,
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit numquam dolores consequatur praesentium labore quod, quae nemo id tempore eius!",
-    profilePic: "S",
+      "Good security solutions at a fair price. Their support team is helpful, but there's slight room for improvement.",
   },
 ];
 
@@ -50,7 +47,6 @@ const ReviewSection = () => {
       reviews.unshift({
         ...newReview,
         id: reviews.length + 1,
-        profilePic: newReview.name[0],
       });
       setNewReview({ name: "", rating: 5, review: "" });
       setShowForm(false);
@@ -77,7 +73,7 @@ const ReviewSection = () => {
         {reviews.map((review) => (
           <div key={review.id} className="review-card">
             <div className="review-header">
-              <div className="profile-pic">{review.profilePic}</div>
+              <i className="bi bi-person-circle profile-icon" style={{ fontSize: "1.7rem" }}></i>
               <div>
                 <p className="review-author">{review.name}</p>
                 <span className="stars">{"★".repeat(review.rating)}</span>

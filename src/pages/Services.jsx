@@ -1,55 +1,61 @@
-
+import { useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import "../Styles/global.css"; // Ensure this file is imported
-
 import { Typography } from "@mui/material";
 
 const DFGServices = () => {
+  const [expanded, setExpanded] = useState(null);
+
+  const handleToggle = (index) => {
+    setExpanded(expanded === index ? null : index);
+  };
+
+  const services = [
+    {
+      title: "Expert Security Team",
+      text: "Our professionals are trained to handle any security challenge effectively and efficiently.",
+      moreText: "We ensure our guards undergo rigorous training programs for ultimate security.",
+    },
+    {
+      title: "24/7 Surveillance",
+      text: "We provide round-the-clock monitoring to ensure your safety and security at all times.",
+      moreText: "Our advanced surveillance system includes AI-based motion detection and live alerts.",
+    },
+    {
+      title: "Advanced Technology",
+      text: "Utilizing cutting-edge security systems to safeguard your assets and premises.",
+      moreText: "We implement biometric access, smart sensors, and cloud-based monitoring.",
+    },
+  ];
+
   return (
     <div className="services-section">
       <Typography variant="h2" className="services-title text-danger">
         Our Services
       </Typography>
 
-
-      {/* Card Section */}
       <Container className="mt-4">
-          <Row className="g-4">
-            <Col md={4}>
+        <Row className="g-4">
+          {services.map((service, index) => (
+            <Col md={4} key={index}>
               <Card className="text-center shadow-lg">
                 <Card.Body>
-                  <Card.Title>Expert Security Team</Card.Title>
-                  <Card.Text>
-                    Our professionals are trained to handle any security challenge effectively and efficiently.
-                  </Card.Text>
-                  <button className="btn btn-danger">Learn More</button>
+                  <Card.Title>{service.title}</Card.Title>
+                  <Card.Text>{service.text}</Card.Text>
+                  {expanded === index && (
+                    <Card.Text className="text-black">{service.moreText}</Card.Text>
+                  )}
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleToggle(index)}
+                  >
+                    {expanded === index ? "Show Less" : "Learn More"}
+                  </button>
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
-              <Card className="text-center shadow-lg">
-                <Card.Body>
-                  <Card.Title>24/7 Surveillance</Card.Title>
-                  <Card.Text>
-                    We provide round-the-clock monitoring to ensure your safety and security at all times.
-                  </Card.Text>
-                  <button className="btn btn-danger">Learn More</button>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={4}>
-              <Card className="text-center shadow-lg">
-                <Card.Body>
-                  <Card.Title>Advanced Technology</Card.Title>
-                  <Card.Text>
-                    Utilizing cutting-edge security systems to safeguard your assets and premises.
-                  </Card.Text>
-                  <button className="btn btn-danger">Learn More</button>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };

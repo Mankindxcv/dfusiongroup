@@ -26,11 +26,11 @@ const Contact = () => {
             transition={{ duration: 1 }}
           >
             <h4><FaMapMarkerAlt /> Our Address</h4>
-            <p>123 Security Street, Nairobi, Kenya</p>
+            <p>Unit 805,The Gateway 73-79 broad street, Sheffield S2 5TN</p>
             <h4><FaEnvelope /> Email Us</h4>
-            <p>info@dfgsecurity.com</p>
+            <p>dfusiongroupdfg@gmail.com</p>
             <h4><FaPhone /> Call Us</h4>
-            <p>+254 700 123 456</p>
+            <p>07367783778</p>
           </motion.div>
         </Col>
 

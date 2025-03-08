@@ -40,20 +40,16 @@ const Footer = () => {
           <Col md={3}>
             <h4 className="footer-title">Stay Connected</h4>
             <p className="footer-text">Follow us on our social media platforms.</p>
-            <div className="social-icons d-flex gap-3 mt-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link"><FaFacebook /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link"><FaLinkedin /></a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link"><FaTwitter /></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link"><FaInstagram /></a>
-              <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" className="social-link"><FaWhatsapp /></a>
-              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="social-link"><FaTiktok /></a>
+            <div className="contact-info">
+              <p>Instagram: dfg_security_</p>
+              <p>Facebook: dfggroup</p>
             </div>
 
             {/* Contact Info */}
             <div className="contact-info mt-4">
               <h4 className="footer-title">Contact Us</h4>
-              <p className="footer-text">Email: info@dfgsecurity.com</p>
-              <p className="footer-text">Phone: +254 700 123 456</p>
+              <p className="footer-text">Email: dfusiongroupdfg@gmail.com</p>
+              <p className="footer-text">Phone: 07367783778</p>
             </div>
           </Col>
         </Row>
