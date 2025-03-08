@@ -1,5 +1,10 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { FaFacebook, FaLinkedin, FaTwitter, FaInstagram, FaWhatsapp, FaTiktok, FaCircle } from "react-icons/fa";
+import { 
+  FaFacebook, 
+  FaInstagram, 
+  FaTiktok, 
+  FaCircle 
+} from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -40,9 +45,16 @@ const Footer = () => {
           <Col md={3}>
             <h4 className="footer-title">Stay Connected</h4>
             <p className="footer-text">Follow us on our social media platforms.</p>
-            <div className="contact-info">
-              <p>Instagram: dfg_security_</p>
-              <p>Facebook: dfggroup</p>
+            <div className="social-icons d-flex gap-3 mt-3">
+              <a href="https://www.instagram.com/dfg_security_" target="_blank" rel="noopener noreferrer">
+                <FaInstagram size={24} />
+              </a>
+              <a href="https://www.facebook.com/dfggroup" target="_blank" rel="noopener noreferrer">
+                <FaFacebook size={24} />
+              </a>
+              <a href="https://www.tiktok.com/@dfg.security" target="_blank" rel="noopener noreferrer">
+                <FaTiktok size={24} />
+              </a>
             </div>
 
             {/* Contact Info */}
