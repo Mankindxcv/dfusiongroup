@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Navbar, Nav, Container, Image, Card, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import logo from "../assets/D F G SECURTY-1.jpg";
@@ -13,6 +13,10 @@ const Home = () => {
   const reviewsRef = useRef(null);
   const contactRef = useRef(null);
 
+  const [showMission, setShowMission] = useState(false);
+  const [showVision, setShowVision] = useState(false);
+  const [showValues, setShowValues] = useState(false);
+
   const scrollToSection = (ref) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -21,22 +25,22 @@ const Home = () => {
     <>
       <div className="main-content">
         {/* Responsive Navbar */}
-          <Navbar expand="md" bg="danger" variant="dark" fixed="top" collapseOnSelect>
-            <Container>
-              <Navbar.Brand href="#" className="fw-bold text-white">DFG Security</Navbar.Brand>
-              <Navbar.Toggle aria-controls="navbar-nav" className="border-0">
-                <span className="navbar-toggler-icon" style={{ filter: "brightness(0) invert(1)" }}></span>
-              </Navbar.Toggle>
-              <Navbar.Collapse id="navbar-nav">
-                <Nav className="ms-auto">
-                  <Nav.Link className="text-white" onClick={() => scrollToSection(aboutRef)}>About Us</Nav.Link>
-                  <Nav.Link className="text-white" onClick={() => scrollToSection(servicesRef)}>Services</Nav.Link>
-                  <Nav.Link className="text-white" onClick={() => scrollToSection(reviewsRef)}>Reviews</Nav.Link>
-                  <Nav.Link className="text-white" onClick={() => scrollToSection(contactRef)}>Contact</Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
+        <Navbar expand="md" bg="danger" variant="dark" fixed="top" collapseOnSelect>
+          <Container>
+            <Navbar.Brand href="#" className="fw-bold text-white">DFG Security</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbar-nav" className="border-0">
+              <span className="navbar-toggler-icon" style={{ filter: "brightness(0) invert(1)" }}></span>
+            </Navbar.Toggle>
+            <Navbar.Collapse id="navbar-nav">
+              <Nav className="ms-auto">
+                <Nav.Link className="text-white" onClick={() => scrollToSection(aboutRef)}>About Us</Nav.Link>
+                <Nav.Link className="text-white" onClick={() => scrollToSection(servicesRef)}>Services</Nav.Link>
+                <Nav.Link className="text-white" onClick={() => scrollToSection(reviewsRef)}>Reviews</Nav.Link>
+                <Nav.Link className="text-white" onClick={() => scrollToSection(contactRef)}>Contact</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
 
         {/* Hero Section */}
         <div className="hero-container d-flex justify-content-center px-3">
@@ -84,23 +88,39 @@ const Home = () => {
                 <Card.Body>
                   <Card.Title>Our Mission</Card.Title>
                   <Card.Text>
-                  To provide cutting-edge security solutions that protect and empower businesses and individuals worldwide.
+                    To provide cutting-edge security solutions that protect and empower businesses and individuals worldwide.
                   </Card.Text>
-                  <button className="btn btn-danger">Learn More</button> <br /> <br />
+                  {showMission && (
+                    <Card.Text className="mt-3 text-black">
+                      We are committed to maintaining the highest standards in security services and ensuring that our clients feel safe at all times.
+                    </Card.Text>
+                  )}
+                  <button className="btn btn-danger mt-3" onClick={() => setShowMission(!showMission)}>
+                    {showMission ? "Show Less" : "Learn More"}
+                  </button>
                 </Card.Body>
               </Card>
             </Col>
+
             <Col md={4}>
               <Card className="text-center shadow-lg">
                 <Card.Body>
                   <Card.Title>Our Vision</Card.Title>
                   <Card.Text>
-                  To be the leading security solutions provider, ensuring a safer, more secure future for all.
+                    To be the leading security solutions provider, ensuring a safer, more secure future for all.
                   </Card.Text>
-                  <button className="btn btn-danger">Learn More</button> <br /> <br /> <br />
+                  {showVision && (
+                    <Card.Text className="mt-3 text-black">
+                      Our goal is to continuously innovate and provide top-notch security solutions that meet the evolving needs of our clients.
+                    </Card.Text>
+                  )}
+                  <button className="btn btn-danger mt-3" onClick={() => setShowVision(!showVision)}>
+                    {showVision ? "Show Less" : "Learn More"}
+                  </button>
                 </Card.Body>
               </Card>
             </Col>
+
             <Col md={4}>
               <Card className="text-center shadow-lg">
                 <Card.Body>
@@ -111,7 +131,14 @@ const Home = () => {
                     Innovation & Excellence <br />
                     Commitment to Service
                   </Card.Text>
-                  <button className="btn btn-danger">Learn More</button>
+                  {showValues && (
+                    <Card.Text className="mt-3 text-black">
+                      We believe in maintaining a high level of integrity, prioritizing our customers, and consistently striving for excellence in all that we do.
+                    </Card.Text>
+                  )}
+                  <button className="btn btn-danger mt-3" onClick={() => setShowValues(!showValues)}>
+                    {showValues ? "Show Less" : "Learn More"}
+                  </button>
                 </Card.Body>
               </Card>
             </Col>
