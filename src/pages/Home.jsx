@@ -126,7 +126,7 @@ const Home = () => {
                     Commitment to Service
                   </Card.Text>
                   {showValues && (
-                    <Card.Text className="mt-3 text-black">
+                    <Card.Text className="text-black">
                       We believe in maintaining a high level of integrity, prioritizing our customers, and consistently striving for excellence in all that we do.
                     </Card.Text>
                   )}
