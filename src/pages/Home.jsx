@@ -14,7 +14,6 @@ const Home = () => {
   const contactRef = useRef(null);
 
   const [showMission, setShowMission] = useState(false);
-  const [showVision, setShowVision] = useState(false);
   const [showValues, setShowValues] = useState(false);
 
   const scrollToSection = (ref) => {
@@ -95,8 +94,8 @@ const Home = () => {
                       We are committed to maintaining the highest standards in security services and ensuring that our clients feel safe at all times.
                     </Card.Text>
                   )}
-                  <button className="btn btn-danger mt-3" onClick={() => setShowMission(!showMission)}>
-                    {showMission ? "Show Less" : "Learn More"}
+                  <button className="btn btn-danger mt-3" onClick={() => scrollToSection(aboutRef)}>
+                   Learn More
                   </button>
                 </Card.Body>
               </Card>
@@ -109,18 +108,13 @@ const Home = () => {
                   <Card.Text>
                     To be the leading security solutions provider, ensuring a safer, more secure future for all.
                   </Card.Text>
-                  {showVision && (
-                    <Card.Text className="mt-3 text-black">
-                      Our goal is to continuously innovate and provide top-notch security solutions that meet the evolving needs of our clients.
-                    </Card.Text>
-                  )}
-                  <button className="btn btn-danger mt-3" onClick={() => setShowVision(!showVision)}>
-                    {showVision ? "Show Less" : "Learn More"}
+                  <button className="btn btn-danger mt-3" onClick={() => scrollToSection(servicesRef)}>
+                    Learn More
                   </button>
                 </Card.Body>
               </Card>
             </Col>
-
+            
             <Col md={4}>
               <Card className="text-center shadow-lg">
                 <Card.Body>
